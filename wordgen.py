@@ -28,8 +28,10 @@ def get_synonyms(word):
 
 def add_special_chars(word):
     char_list = ['!', '@', '#', '$', '%', '^', '&', '*']
-    front_chars_count = random.randint(0, 4)
-    back_chars_count = 4 - front_chars_count
+
+    total_chars = random.randint(1, 4)  # Total number of special characters (front + back) is between 1 and 4
+    front_chars_count = random.randint(0, total_chars)  # Randomly select number of special characters for the front
+    back_chars_count = total_chars - front_chars_count  # Remaining characters are for the back
 
     front_chars = ''.join(random.choices(char_list, k=front_chars_count))
     back_chars = ''.join(random.choices(char_list, k=back_chars_count))
